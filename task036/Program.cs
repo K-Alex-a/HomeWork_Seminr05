@@ -29,15 +29,22 @@
 // FillArray(array);                                  // запускаем метод заполнения массива
 // Console.Write($"] -> {NotEvenI(array)}");          // выводим на печать результат
 
+
+
 // Вариант 2(компактный с выводом в конце):
-int[] FillArray()                                      // создаем метод FillArray для создания рандом массива
+int[] array = FillArray();                                      // запускаем сбор массива через метод  
+int result = NotEvenI(array);                                   // запускаем метод для проверки не четности индекса массива 
+Console.Write($"[{string.Join(", ", array)}] -> {result}");     // выводим на печать результат
+
+int[] FillArray()                            // создаем метод FillArray для создания рандом массива
 {
-    int[] arr = new int[new Random().Next(3, 10)];
-    for (int i = 0; i < arr.Length; i++)              // пока index меньше чем length будем делать ->
+    Random rnd = new Random();               // сокращение до rnd
+    int[] arr = new int[rnd.Next(4, 10)];
+    for (int i = 0; i < arr.Length; i++)     // пока index меньше чем length будем делать ->
     {
-        arr[i] = new Random().Next(100, 1000);        // выводим на печать собранный массив из цифр от 100 до 1000
+        arr[i] = rnd.Next(1, 100);           // cобираем массив из цифр от 1 до 100
     }
-    return arr;
+    return arr;                              // выводим полученный массив
 }
 
 int NotEvenI(int[] arr)                        // создаем метод для проверки не четности индекса массива
@@ -49,7 +56,3 @@ int NotEvenI(int[] arr)                        // создаем метод дл
     }
     return sum;                                // выводим sum
 }
-
-int[] array = FillArray();                                      // запускаем сбор массива через метод  
-int result = NotEvenI(array);                                   // запускаем метод для проверки не четности индекса массива 
-Console.Write($"[{string.Join(", ", array)}] -> {result}");     // выводим на печать результат
